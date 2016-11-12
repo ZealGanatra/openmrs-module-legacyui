@@ -76,6 +76,8 @@
 				var female = document.getElementById("gender-F");
 				var year = new Date().getFullYear();
 				var nameValidatorRegexGP = "<openmrs:globalProperty key='patient.nameValidationRegex' defaultValue='.*'/>";
+				var scriptRegex = "<script[^>]*>(.*?)</script[^>]*>"
+
 				if (nameValidatorRegexGP == "")
 					nameValidatorRegexGP = ".*";
 				var nameValidatorRegex = new RegExp(nameValidatorRegexGP);
@@ -86,7 +88,7 @@
 					result = false;
 				}
 				else {
-					if (!(name.value.match(nameValidatorRegex))) {
+					if (!(name.value.match(nameValidatorRegex))||name.value.match(scriptRegex)) {
 						showError("invalidNameError");
 						result = false;	
 					}
