@@ -28,8 +28,12 @@
     function validateFormat(obj, regex, codeName) {
         var formatMsg = "formatMsg_" + codeName;
         var resultArray = obj.value.match(regex);
+        
+        var scriptRegex = "<script[^>]*>(.*?)</script[^>]*>";
+        var existScript = obj.value.match(scriptRegex);
+
         var tips = document.getElementsByName(formatMsg);
-        if (resultArray || obj.value == null || obj.value == "") {
+        if (resultArray || obj.value == null || obj.value == ""||existScript) {
             obj.style.background="";
             for (var i=0; i<tips.length; i++) {
                 tips[i].style.display = "none";
