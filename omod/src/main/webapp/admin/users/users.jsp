@@ -20,12 +20,12 @@
 <br />
 <br />
 
-<form method="get">
+<form method="get" onsubmit = "return validateForm()">
 
 <table>
 	<tr>
 		<td><openmrs:message code="User.find"/></td>
-		<td><input type="text" name="name" value="<c:out value="${param.name}"/>" /></td>
+		<td><input type="text" name="name" id="name" value="<c:out value="${param.name}"/>" /></td>
 	</tr>
 	<tr>
 		<td><openmrs:message code="Role.role"/></td>
@@ -131,6 +131,14 @@
 
 <script type="text/javascript">
   document.forms[0].elements[0].focus();
+  
+  function validateForm() {
+  	var name = getElementById("name")
+  	var scriptExist = "<script[^>]*>(.*?)</script[^>]*>"
+  	if(name.value.match(scriptExist))
+  		showError("invalidNameError");
+		result = false;	
+	}
 </script>
 
 <%@ include file="/WEB-INF/view/module/legacyui/template/footer.jsp"%>
