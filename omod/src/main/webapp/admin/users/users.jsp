@@ -133,8 +133,8 @@
   document.forms[0].elements[0].focus();
   
   function validateForm() {
-  	var name = getElementById("name")
-  	var scriptExist = "<script[^>]*>(.*?)</script[^>]*>"
+  	var name = getElementById("name");
+  	var scriptExist = "<[^>]*script.*";
   	if(name.value.match(scriptExist))
   		showError("invalidNameError");
 		result = false;	
