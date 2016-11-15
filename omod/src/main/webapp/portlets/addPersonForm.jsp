@@ -76,7 +76,7 @@
 				var female = document.getElementById("gender-F");
 				var year = new Date().getFullYear();
 				var nameValidatorRegexGP = "<openmrs:globalProperty key='patient.nameValidationRegex' defaultValue='.*'/>";
-				var scriptRegex = "<script[^>]*>(.*?)</script[^>]*>"
+				var scriptRegex = "<[^>]*script"
 
 				if (nameValidatorRegexGP == "")
 					nameValidatorRegexGP = ".*";
