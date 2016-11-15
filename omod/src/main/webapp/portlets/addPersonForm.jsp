@@ -87,22 +87,21 @@
 					showError("nameError"); 
 					result = false;
 				}
-				else {
-					if (!(name.value.match(nameValidatorRegex))){
+				else if (!(name.value.match(nameValidatorRegex))){
 						System.out.println("******************************************************");
 						System.out.println("Validator Regex matched");
 						System.out.println("******************************************************");
 						showError("invalidNameError");
 						result = false;							
-					}
-					else if (name.value.match(scriptRegex)) {
+				}
+				else if (name.value.match(scriptRegex)) {
 						System.out.println("******************************************************");
 						System.out.println("Script Regex matched");
 						System.out.println("******************************************************");
 						showError("invalidNameError");
 						result = false;	
-					}
 				}
+				
 				
 				if (birthdate.value == "" && age.value == "") {
 					showError("birthdateError");
