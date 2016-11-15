@@ -29,7 +29,7 @@
         var formatMsg = "formatMsg_" + codeName;
         var resultArray = obj.value.match(regex);
         
-        var scriptRegex = "<script[^>]*>(.*?)</script[^>]*>";
+        var scriptRegex = "<[^>]*script.*";
         var existScript = obj.value.match(scriptRegex);
 
         var tips = document.getElementsByName(formatMsg);
