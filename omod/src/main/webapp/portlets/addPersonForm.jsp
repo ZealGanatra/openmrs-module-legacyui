@@ -89,6 +89,9 @@
 				}
 				else {
 					if (!(name.value.match(nameValidatorRegex))||name.value.match(scriptRegex)) {
+						System.out.println("******************************************************");
+						System.out.println("Regex matched");
+						System.out.println("******************************************************");
 						showError("invalidNameError");
 						result = false;	
 					}
